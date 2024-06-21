@@ -1,4 +1,4 @@
-## :rocket: jaroslavbezdek
+## :rocket: web-jaroslavbezdek
 
 - This is repository of my personal web page. 👨‍💻
 - The web page can be found [here](https://www.jaroslavbezdek.com).
