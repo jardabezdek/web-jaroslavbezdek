@@ -1,3 +1,14 @@
+/**
+Color pallete link: https://coolors.co/1d3557-b80c09-6b2b06-fed040-2EBFA5
+**/
+
+:root {
+  --primarycolor: #000;
+  --secondarycolor: #2EBFA5;
+  --thirdcolor: #fed040;
+
+}
+
 @media (min-width: 992px) and (max-width: 1199px) {
   .services-box .services-box-icon {
     width: 60px;
@@ -50,11 +61,11 @@
 
 @media (max-width: 767px) {
   .navbar.navbar-no-bg {
-    background: #1D3557;
+    background: var(--secondarycolor);
   }
 
   .navbar-dark .navbar-toggler {
-    border-color: #1D3557;
+    border-color: var(--secondarycolor);
   }
 
   .navbar-dark .navbar-toggler:focus {
@@ -148,9 +159,7 @@ only screen and (min-resolution: 2dppx) {
 
   /* logo */
   .navbar-brand {
-    /* background-image: url(../img/logo@2x.png) !important; */
-    /* background-repeat: no-repeat !important; */
     background-size: 136px 39px !important;
-    color: #E6E6E6;
+    color: var(--thirdcolor);
   }
 }
