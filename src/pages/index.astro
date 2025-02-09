@@ -1,0 +1,378 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import Header from '~/components/widgets/Header.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Content from '~/components/widgets/Content.astro';
+import Features from '~/components/widgets/Features.astro';
+import Testimonials from '~/components/widgets/Testimonials.astro';
+import Steps from '~/components/widgets/Steps.astro';
+import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
+import { getPermalink, getBlogPermalink } from '~/utils/permalinks';
+
+const metadata = {
+  title: 'Jaroslav Bezděk',
+};
+---
+
+<Layout metadata={metadata}>
+
+  <!-- Announcement ******************* -->
+  
+  <Fragment slot="announcement">
+    <div class="bg-blue-500 text-white p-2 text-center">
+      <p>
+        I'm open to new opportunities in the <b>hockey analytics</b> field.
+      </p>
+    </div>
+  </Fragment>
+
+  <!-- Header ******************* -->
+
+  <Fragment slot="header">  
+    <Header
+      links={[
+        { text: 'Home', href: '#hero' },
+        { text: 'About', href: '#about' },
+        { text: 'Resume', href: '#resume' },
+        { text: 'Projects', href: '#projects' },
+        { text: 'Testimonials', href: '#testimonials' },
+        { text: 'Blog', href: getBlogPermalink() },
+        { text: 'Contact', href: '#contact' },
+      ]}
+      isSticky
+      showToggleTheme
+    />
+  </Fragment>
+
+  <!-- Hero ******************* -->
+
+  <Hero
+    id="hero"
+    title="Jaroslav Bezděk"
+    tagline=""
+    actions={[{ variant: 'primary', text: 'Hire me', href: getPermalink('#contact') }]}
+  >
+    <Fragment slot="subtitle">
+      Machine Learning Engineer. Pythonista. Aspiring Hockey Data Analyst.
+    </Fragment>
+  </Hero>
+
+  <!-- About me **************** -->
+
+  <Content
+    id="about"
+    columns={3}
+    items={[
+      {
+        icon: 'tabler:brand-linkedin',
+        callToAction: {
+          target: '_blank',
+          text: 'LinkedIn',
+          href: 'https://www.linkedin.com/in/jaroslavbezdek/',
+        },
+      },
+      {
+        icon: 'tabler:brand-github',
+        callToAction: {
+          target: '_blank',
+          text: 'GitHub',
+          href: 'https://github.com/jardabezdek',
+        },
+      },
+      {
+        icon: 'tabler:brand-stackoverflow',
+        callToAction: {
+          target: '_blank',
+          text: 'StackOverflow',
+          href: 'https://stackoverflow.com/users/7122272/jaroslav-bezdek',
+        },
+      },
+    ]}
+    image={{ src: '~/assets/images/me.jpg', alt: 'About', loading: 'eager' }}
+  >
+    <Fragment slot="content">
+      <h2 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">About me</h2>
+
+      <p>
+        In 2018, I earned my <b>master's degree in Statistics</b>.  
+        Since then, I've been working in the <b>ML & AI</b> field for both agencies and product companies.  
+        My go-to tools are <b>Python</b>, <b>SQL</b>, and <b>AWS</b>. 
+      </p>
+      <br />
+      
+      <p>
+        I'm passionate about <b>hockey analytics</b>.  
+        My dream is to work as a data analyst for an NHL team and <b>win the Stanley Cup</b>.  
+        I'm <b>actively looking for opportunities in this field</b>.
+      </p>
+      <br />
+      
+      <p>
+        I strive to <b>give back to the tech community</b> that has given me so much.  
+        That's why I regularly <b>speak at conferences</b> and contribute to <b>Stack Overflow</b>.
+      </p>
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <!-- Work experience ****************** -->
+
+  <Steps
+    id="resume"
+    title="Work experience"
+    items={[
+      {
+        title: 'AI Engineer <br /> <span class="font-normal">ScaleVoice, Remote</span> <br /> <span class="text-sm font-normal">07/2024 - 02/2025 (8 months)</span>',
+        description: `Contributed to the development of a multi-agent system for the automotive industry, focusing on chat, messaging, and planning agents. <br />Python, SQL, Azure, OpenAI, FastAPI.`,
+        icon: 'tabler:briefcase',
+      },
+      {
+        title: 'Machine Learning Engineer <br /> <span class="font-normal">STRV, Brno, Czech Republic</span> <br /> <span class="text-sm font-normal">02/2022 - 06/2024 (2 years 5 months)</span>',
+        icon: 'tabler:briefcase',
+        description: `Worked on 4 machine learning projects for U.S. based clients, including sleep stage classification, emotion detection, content moderation, and text classification. <br /> Led a team of 3 engineers on 1 project. <br />Python, SQL, AWS, dbt, OpenAI.`,
+      },
+      {
+        title: 'Data Scientist <br /> <span class="font-normal">Aures Holdings, Remote</span> <br /> <span class="text-sm font-normal">10/2019 - 01/2022 (2 years 4 months)</span>',
+        description: `Led 5 machine learning projects to help internal teams to estimate car prices and predict purchase probability. <br /> Developed 5 internal Python libraries to streamline workflows and enhance efficiency. <br />Python, SQL, Jupyter Notebook, Azure, Docker, PowerBI.`,
+        icon: 'tabler:briefcase',
+      },
+      {
+        title: 'Junior Data Scientist <br /> <span class="font-normal">Gauss Algorithmic, Brno, Czech Republic</span> <br /> <span class="text-sm font-normal">07/2018 - 09/2019 (1 year 3 months)</span>',
+        description: `Made over 30 data analyses, and created 2 machine learning models. <br /> Developed 1 web application. <br />Python, SQL, Jupyter Notebook, R Shiny.`,
+        icon: 'tabler:briefcase',
+      },
+    ]}
+    classes={{ container: 'max-w-3xl' }}
+  />
+
+  <!-- Education and Certifications ****************** -->
+
+  <Steps
+  id="resume"
+  title="Education and Certifications"
+  items={[
+      {
+        title: `Hockey Analytics Certificate<br /> <span class="font-normal">Sports Management Worldwide</span> <br /> <span class="text-sm font-normal">Issued in January 2025</span>`,
+        icon: 'tabler:certificate',
+      },
+      {
+        title: `AWS Certified Cloud Practitioner<br /> <span class="font-normal">Amazon Web Services</span> <br /> <span class="text-sm font-normal">Issued in January 2023, expires in January 2026</span>`,
+        icon: 'tabler:certificate',
+      },
+      {
+        title: `Master's Degree in Statistics <br /> <span class="font-normal">Prague University of Economics and Business</span> <br /> <span class="text-sm font-normal">2016 - 2018</span>`,
+        icon: 'tabler:school',
+      },
+      {
+        title: `Bachelor's Degree in Statistics and Econometrics <br /> <span class="font-normal">Prague University of Economics and Business</span> <br /> <span class="text-sm font-normal">2013 - 2016</span>`,
+        icon: 'tabler:school',
+      },
+    ]}
+    classes={{ container: 'max-w-3xl' }}
+  />
+
+
+  <!-- Skills ************** -->
+
+  <Features
+    id="skills"
+    title="Skills"
+    subtitle=""
+    columns={3}
+    items={[
+      {
+        title: 'Python',
+        description: 'Proficient in writing efficient, scalable, and maintainable code for data analysis, machine learning, and automation.',
+        icon: 'tabler:brand-python',
+      },
+      {
+        title: 'SQL',
+        description: 'Skilled in writing queries for data extraction, transformation, and analysis across various database systems.',
+        icon: 'tabler:database',
+      },
+      {
+        title: 'Cloud Services',
+        description: 'Experienced in deploying and managing applications on AWS and Azure, with a focus on scalability and cost optimization.',
+        icon: 'tabler:cloud',
+      },
+      {
+        title: 'Machine Learning',
+        description: 'Hands-on experience in building and deploying machine learning models for classification, regression, and NLP tasks.',
+        icon: 'tabler:brain',
+      },
+      {
+        title: 'Statistics',
+        description: 'Strong foundation in probability, hypothesis testing, and statistical modeling for data-driven decision-making.',
+        icon: 'tabler:chart-bar',
+      },
+      {
+        title: 'DevOps',
+        description: 'Familiar with CI/CD pipelines (GitHub Actions), containerization (Docker), and infrastructure as code (AWS CDK).',
+        icon: 'tabler:code',
+      },
+      {
+        title: 'Attention to Detail',
+        description: 'Committed to writing clean, well-documented code and ensuring accuracy in data analysis and models development.',
+        icon: 'tabler:eye',
+      },
+      {
+        title: 'Communication',
+        description: 'Able to effectively explain complex technical concepts to both technical and non-technical audiences.',
+        icon: 'tabler:message',
+      },
+      {
+        title: 'Public Speaking',
+        description: 'Experienced in presenting at conferences around the world, delivering technical talks, and engaging with the tech community.',
+        icon: 'tabler:speakerphone',
+      },
+    ]}
+  />
+
+
+  <!-- Projects -- Frozen Facts Center **************** -->
+
+  <Content
+    id="projects"
+    title="Projects"
+    subtitle="Explore my spare-time projects."
+    isReversed
+    items={[
+      {
+        title: 'Infrastructure',
+        description: 'Fully hosted on AWS, utilizing AWS CDK for infrastructure as code.',
+        icon: 'tabler:cloud',
+      },
+      {
+        title: 'Backend',
+        description: 'A daily job fetches event data—shots, goals, penalties, takeaways, etc.—and stores it in S3. Once complete, another job runs dbt to process the event data and prepare aggregated statistics for the frontend.',
+        icon: 'tabler:code',
+      },
+      {
+        title: 'Frontend',
+        description: 'Built with Streamlit, providing standings, scores, fixtures, and player statistics.',
+        icon: 'tabler:chart-bar',
+      },
+    ]}
+    image={{ src: '~/assets/images/ffc.jpg', alt: 'Frozen Facts Center', loading: 'eager' }}
+    callToAction={{
+      target: '_blank',
+      text: 'Visit the website',
+      icon: 'tabler:external-link',
+      href: 'https://frozenfacts.center/',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        Frozen Facts Center<br /><span class="text-xl">Hockey analytics website</span>
+      </h3>
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+
+  <!-- Projects -- Travel Blog **************** -->
+
+  <Content
+    isReversed
+    isAfterContent={true}
+    items={[
+      {
+        title: 'About',
+        description: 'I love to travel and I tend to forget details over time. To preserve my memories, I write about places, people, and experiences that I want to remember.',
+        icon: 'tabler:message',
+      },
+      {
+        title: 'Language',
+        description: `The blog is written in Czech.`,
+        icon: 'tabler:language',
+      },
+    ]}
+    image={{ src: '~/assets/images/travel_blog.jpg', alt: 'Travel Blog', loading: 'eager' }}
+    callToAction={{
+      target: '_blank',
+      text: 'Visit the website',
+      icon: 'tabler:external-link',
+      href: 'https://jardabezdek.github.io/web-blog/',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        Travel Blog<br />
+      </h3>
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <!-- Testimonials *********** -->
+
+  <Testimonials
+    id="testimonials"
+    title="Testimonials"
+    subtitle="Discover what clients and colleagues have to say about their experiences working with me."
+    testimonials={[
+      {
+        testimonial: `I worked with Jaroslav on customer data analytics project for our e-commerce customer. I really have to highlight Jaroslav's quick orientation in customer's problems and data, plus his understanding of goals we wanted to achieve. He prepared perfect market basket analysis and was able to clearly and convincingly define, communicate and document the outputs.`,
+        name: 'Vít Richtr',
+        job: 'Lead Business Analyst at Simplity',
+      },
+      {
+        testimonial: `I have worked with Jaroslav on time series forecasting. I would like to highlight Jaroslav’s high level of professionalism and his exquisite python programming skills. One can truly read his code like a novel. His ability to quickly prototype solutions to scalably process large datasets is impressive. His programming was always with an end goal in sight, to produce an automated solution for a given analytic task.`,
+        name: 'Luka Grubišić',
+        job: 'Data Sience Team Lead at tvbeat',
+      },
+      {
+        testimonial: `I had an opportunity to work with Jaroslav for a couple of years in ML team in an automotive industry and it has been a pleasure! He always understands the problem and gets to the issue at hand. He can document the whole project with ease and integrity. He can deliver on time and present the result in a perfect way. His personality is just as great as his work drive, I will definitely miss seeing him around.`,
+        name: 'Jakub Řehák',
+        job: 'Data Science Team Lead at Aures Holdings',
+      },
+    ]}
+  />
+
+  <!-- Blog **************** -->
+
+  <BlogLatestPosts
+    id="blog"
+    title="Explore my articles about hockey analytics"
+    information={`I'm not a hockey data analyst—yet. But I'm determined to become one. I started this blog to document my journey, sharing my own data analyses, recreating notable studies using current datasets, and reflecting on my experiences and lessons learned along the way. I hope I can make it!`}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </BlogLatestPosts>
+
+  <!-- Contact **************** -->
+
+  <Features2
+    id="contact"
+    title="Contact"
+    subtitle="Let's connect!"
+    items={[
+      {
+        title: 'Email',
+        description: '<a href="mailto:bezdekjarda@seznam.cz">bezdekjarda@seznam.cz</a>',
+        icon: 'tabler:mail',
+      },
+      {
+        title: 'LinkedIn',
+        description: '<a href="https://www.linkedin.com/in/jaroslavbezdek/">jaroslavbezdek</a>',
+        icon: 'tabler:brand-linkedin',
+      },
+      {
+        title: 'X',
+        description: '<a href="https://x.com/iamjaroslav">@iamjaroslav</a>',
+        icon: 'tabler:brand-x',
+      },
+    ]}
+  />
+
+</Layout>

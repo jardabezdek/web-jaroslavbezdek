@@ -1,0 +1,75 @@
+---
+import type { InferGetStaticPropsType, GetStaticPaths } from 'astro';
+
+import Layout from '~/layouts/PageLayout.astro';
+import BlogList from '~/components/blog/List.astro';
+import Headline from '~/components/blog/Headline.astro';
+import Pagination from '~/components/blog/Pagination.astro';
+import Header from '~/components/widgets/Header.astro';
+// import PostTags from "~/components/blog/Tags.astro";
+
+import { blogListRobots, getStaticPathsBlogList } from '~/utils/blog';
+import { getBlogPermalink } from '~/utils/permalinks';
+
+export const prerender = true;
+
+export const getStaticPaths = (async ({ paginate }) => {
+  return await getStaticPathsBlogList({ paginate });
+}) satisfies GetStaticPaths;
+
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+
+const { page } = Astro.props as Props;
+const currentPage = page.currentPage ?? 1;
+
+// const allCategories = await findCategories();
+// const allTags = await findTags();
+
+const metadata = {
+  title: `Blog${currentPage > 1 ? ` — Page ${currentPage}` : ''}`,
+  robots: {
+    index: blogListRobots?.index && currentPage === 1,
+    follow: blogListRobots?.follow,
+  },
+  openGraph: {
+    type: 'blog',
+  },
+};
+---
+<!-- Navigation ******************* -->
+
+<Layout metadata={metadata}>
+  <Fragment slot="announcement">
+    <div class="bg-blue-500 text-white p-2 text-center">
+      <p>
+        I'm open to new opportunities in the <b>hockey analytics</b> field.
+      </p>
+    </div>
+  </Fragment>
+  <Fragment slot="header">
+    <Header
+      links={[
+        { text: 'Home', href: '/' },
+        { text: 'About', href: '/#about' },
+        { text: 'Resume', href: '/#resume' },
+        { text: 'Projects', href: '/#projects' },
+        { text: 'Testimonials', href: '/#testimonials' },
+        { text: 'Blog', href: getBlogPermalink() },
+        { text: 'Contact', href: '/#contact' },
+      ]}
+      isSticky
+      showRssFeed
+      showToggleTheme
+    />
+  </Fragment>
+
+  <section class="px-6 sm:px-6 py-12 sm:py-16 lg:py-20 mx-auto max-w-4xl">
+    <Headline subtitle="The blog about hockey, analytics, and hockey analytics.">Blog</Headline>
+    <BlogList posts={page.data} />
+    <Pagination prevUrl={page.url.prev} nextUrl={page.url.next} />
+    <!--
+      <PostTags tags={allCategories} class="mb-2" title="Search by Categories:" isCategory />
+      <PostTags tags={allTags}  title="Search by Tags:" />
+    -->
+  </section>
+</Layout>
