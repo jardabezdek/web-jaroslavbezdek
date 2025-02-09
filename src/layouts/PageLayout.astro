@@ -1,0 +1,53 @@
+---
+import Layout from '~/layouts/Layout.astro';
+import Header from '~/components/widgets/Header.astro';
+import Footer from '~/components/widgets/Footer.astro';
+import { getBlogPermalink } from '~/utils/permalinks';
+
+import {footerData } from '~/navigation';
+
+import type { MetaData } from '~/types';
+
+export interface Props {
+  metadata?: MetaData;
+}
+
+const { metadata } = Astro.props;
+---
+
+<Layout metadata={metadata}>
+  
+  <slot name="announcement">
+    <div class="bg-blue-500 text-white p-2 text-center">
+      <p>
+        I'm open to new opportunities in the <b>hockey analytics</b> field.
+      </p>
+    </div>
+  </slot>
+  
+  <slot name="header">
+    <Header
+      links={[
+        { text: 'Home', href: '/' },
+        { text: 'About', href: '/#about' },
+        { text: 'Resume', href: '/#resume' },
+        { text: 'Projects', href: '/#projects' },
+        { text: 'Testimonials', href: '/#testimonials' },
+        { text: 'Blog', href: getBlogPermalink() },
+        { text: 'Contact', href: '/#contact' },
+      ]}
+      isSticky
+      showRssFeed
+      showToggleTheme
+    />
+  </slot>
+
+  <main>
+    <slot />
+  </main>
+  
+  <slot name="footer">
+    <Footer {...footerData} />
+  </slot>
+
+</Layout>
