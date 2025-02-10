@@ -1,0 +1,50 @@
+---
+publishDate: 2025-01-22T00:00:00Z
+author: Jaroslav Bezdek
+title: The Gr8 Chase
+excerpt: Alex Ovechkin is just 20 goals from Gretzky’s record. Based on his scoring trends, he's projected to tie it on April 13. Will he make history before the playoffs? Let’s dive in!
+image: '~/assets/images/the-gr8-chase.jpg'
+category: Predictions
+tags:
+  - alex ovechkin
+  - capitals
+  - wayne gretzky
+  - record
+metadata:
+  canonical: https://www.jaroslavbezdek.com/the-gr8-chase
+---
+
+A topic that’s frequently discussed in the media and on social networks is Alex Ovechkin’s pursuit of Wayne Gretzky’s all-time NHL goal record (894). As of today, Wednesday, January 22, 2025, Ovechkin is just 20 goals away from surpassing "The Great One." Many people believe it’s no longer a question of if he will reach the top spot, but when. So, let’s dive into it and find out!
+
+## Analysis
+
+I decided to use data from the NHL API and downloaded all shots from the last four full seasons and the current half-season. After that, I filtered Ovechkin's shots from the regular seasons and computed the average number of goals per opponent he faced. Over the past 4.5 seasons, he scored the most goals against the Flyers (16), with an average of 0.84 goals per game. However, his best per-game average (1 goal per game) is against three Canadian teams: the Jets, Canucks, and Flames. On the other hand, the opponents he scored least frequently against (0.16 goals per game) are the Oilers, Ducks, and Kings.
+
+## Prediction
+
+After reviewing Ovi's record against these opponents, I downloaded all the remaining games the Capitals will play until the end of the current regular season and assigned his average goals per game to each upcoming game/opponent. When I calculated the cumulative sum of these averages, I found that Ovechkin is expected to tie Wayne Gretzky's goal record on April 13th against the Blue Jackets (the cumulative sum of his average goals per game will exceed 20 goals for the first time).
+
+However, it seems Ovi will not surpass the Great One and become the all-time leading goal scorer before the playoffs, as the cumulative goals after the final regular season game against the Penguins will stand at 20.87.
+
+| game date  | opponent  | average goals per game | goals cumulative |
+| :--------- | :-------- | ---------------------: | ---------------: |
+| 2025-01-23 | SEA | 0.33 | 0.33 |
+| 2025-01-25 | VAN | 1.00 | 1.33 |
+| 2025-01-28 | CGY | 1.00 | 2.33 |
+| 2025-01-30 | OTT | 0.66 | 3.00 |
+| 2025-02-01 | WPG | 1.00 | 4.00 |
+| ... | ... | ... | ... |
+| 2025-04-10 | CAR | 0.90 | 18.78 |
+| 2025-04-12 | CBJ | 0.66 | 19.44 |
+| **2025-04-13** | **CBJ** | **0.66** | **20.11** |
+| 2025-04-15 | NYI | 0.38 | 20.50 |
+| 2025-04-17 | PIT | 0.36 | 20.86 |
+
+## Conclusion
+
+That being said, these are just simple statistics based on assumptions that Ovi will play all the games leading up to that point and maintain his average goal-scoring record against the opponents he will face. So, let's wait and see when the true moment arrives and Ovechkin officially becomes the best NHL goal scorer of all time!
+
+## Links
+
+- [THE GR8 CHASE](https://www.nhl.com/capitals/history/the-gr8-chase)
+- [Jupyter notebook with the analysis](https://github.com/jardabezdek/ffc-backend/blob/master/notebooks/playground/20250122_07_the_gr8_chase.ipynb)

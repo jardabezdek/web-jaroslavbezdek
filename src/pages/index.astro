@@ -37,7 +37,7 @@ const metadata = {
         { text: 'Resume', href: '#resume' },
         { text: 'Projects', href: '#projects' },
         { text: 'Testimonials', href: '#testimonials' },
-        // { text: 'Blog', href: getBlogPermalink() },
+        { text: 'Blog', href: getBlogPermalink() },
         { text: 'Contact', href: '#contact' },
       ]}
       isSticky
@@ -294,7 +294,7 @@ const metadata = {
         icon: 'tabler:language',
       },
     ]}
-    image={{ src: '~/assets/images/travel_blog.jpg', alt: 'Travel Blog', loading: 'eager' }}
+    image={{ src: '~/assets/images/travel-blog.jpg', alt: 'Travel Blog', loading: 'eager' }}
     callToAction={{
       target: '_blank',
       text: 'Visit the website',
@@ -340,7 +340,7 @@ const metadata = {
 
   <!-- Blog **************** -->
 
-  <!-- <BlogLatestPosts
+  <BlogLatestPosts
     id="blog"
     title="Explore my articles about hockey analytics"
     information={`I'm not a hockey data analyst—yet. But I'm determined to become one. I started this blog to document my journey, sharing my own data analyses, recreating notable studies using current datasets, and reflecting on my experiences and lessons learned along the way. I hope I can make it!`}
@@ -348,7 +348,7 @@ const metadata = {
     <Fragment slot="bg">
       <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
     </Fragment>
-  </BlogLatestPosts> -->
+  </BlogLatestPosts>
 
   <!-- Contact **************** -->
 
