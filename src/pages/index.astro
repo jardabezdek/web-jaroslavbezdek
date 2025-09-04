@@ -19,13 +19,15 @@ const metadata = {
 
   <!-- Announcement ******************* -->
   
+  <!-- 
   <Fragment slot="announcement">
     <div class="bg-blue-500 text-white p-2 text-center">
       <p>
         I'm open to new opportunities in the <b>hockey analytics</b> field.
       </p>
     </div>
-  </Fragment>
+  </Fragment> 
+  -->
 
   <!-- Header ******************* -->
 
@@ -54,7 +56,7 @@ const metadata = {
     actions={[{ variant: 'primary', text: 'Hire me', href: getPermalink('#contact') }]}
   >
     <Fragment slot="subtitle">
-      Machine Learning Engineer. Pythonista. Aspiring Hockey Data Analyst.
+      Machine Learning Engineer. Pythonista. Hockey Data Analyst.
     </Fragment>
   </Hero>
 
@@ -104,7 +106,6 @@ const metadata = {
       <p>
         I'm passionate about <b>hockey analytics</b>.  
         My dream is to work as a data analyst for an NHL team and <b>win the Stanley Cup</b>.  
-        I'm <b>actively looking for opportunities in this field</b>.
       </p>
       <br />
       
@@ -125,6 +126,11 @@ const metadata = {
     id="resume"
     title="Work experience"
     items={[
+      {
+        title: 'Head of Sports Intelligence <br /> <span class="font-normal">GRAET, Remote</span> <br /> <span class="text-sm font-normal">06/2025 - present</span>',
+        description: `Leading the machine learning initiatives, responsible for developing and implementing data-driven features for the hockey players development platform. <br />Python, SQL, duckdb, FastAPI.`,
+        icon: 'tabler:briefcase',
+      },
       {
         title: 'Technical Lead <br /> <span class="font-normal">Yieldigo, Remote</span> <br /> <span class="text-sm font-normal">03/2025 - 05/2025 (3 months)</span>',
         description: `Helped shape the culture of the Delivery team by introducing new processes, applying programming best practices, and improving the legacy codebase. <br />Python, SQL, Azure, Pandas.`,
