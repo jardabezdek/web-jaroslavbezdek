@@ -1,0 +1,170 @@
+/* Print-specific styles for hiding unwanted elements */
+
+@media print {
+  /* Hide header and navigation - be very specific */
+  header,
+  #header,
+  nav,
+  .header,
+  .navigation,
+  [data-aw-toggle-menu] {
+    display: none !important;
+  }
+
+  /* Hide footer */
+  footer,
+  .footer {
+    display: none !important;
+  }
+
+  /* Hide blog section - target the specific section */
+  section[id="blog"],
+  #blog {
+    display: none !important;
+  }
+
+  /* Keep testimonials section visible - removed hiding rule */
+
+  /* Hide projects section */
+  section[id="projects"],
+  #projects {
+    display: none !important;
+  }
+
+  /* Hide Travel Blog section - target by image alt text */
+  img[alt="Travel Blog"] {
+    display: none !important;
+  }
+  
+  /* Hide the entire section containing Travel Blog */
+  section:has(img[alt="Travel Blog"]) {
+    display: none !important;
+  }
+  
+  /* Alternative: Hide sections that come after projects section */
+  section:not([id]):not(#hero):not(#about):not(#resume):not(#education):not(#skills):not(#contact):not(#testimonials):not(#blog) {
+    display: none !important;
+  }
+
+  /* Keep contact section visible - removed hiding rule */
+
+  /* Hide specific buttons and CTAs - target button classes */
+  .btn,
+  .btn-primary,
+  .btn-secondary,
+  .btn-tertiary,
+  .button,
+  [role="button"],
+  .call-to-action,
+  .cta,
+  a[class*="btn"] {
+    display: none !important;
+  }
+
+  /* Hide theme toggle */
+  [data-aw-toggle-theme],
+  .theme-toggle,
+  .toggle-theme,
+  .color-mode-toggle {
+    display: none !important;
+  }
+
+  /* Hide external project links */
+  a[href*="frozenfacts.center"],
+  a[href*="jardabezdek.github.io"] {
+    display: none !important;
+  }
+
+  /* Hide social media links in about section */
+  #about a[href*="linkedin"],
+  #about a[href*="github"],
+  #about a[href*="stackoverflow"] {
+    display: none !important;
+  }
+
+  /* Ensure resume and education sections are visible */
+  section[id="resume"],
+  section[id="education"],
+  #resume,
+  #education {
+    display: block !important;
+  }
+
+  /* Override animation classes that hide content in print */
+  .motion-safe\:md\:opacity-0,
+  .motion-safe\:md\:intersect\:animate-fade,
+  [class*="opacity-0"],
+  [class*="animate-fade"] {
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+  /* Ensure all flex containers are visible */
+  .flex {
+    display: flex !important;
+  }
+
+  /* Basic print optimizations */
+  body {
+    font-size: 12pt !important;
+    line-height: 1.4 !important;
+    color: #000 !important;
+    background: #fff !important;
+  }
+
+  /* Ensure proper page breaks */
+  h1, h2, h3 {
+    page-break-after: avoid;
+  }
+
+  /* Target only specific problematic elements, not all backgrounds */
+  section[id="testimonials"] .rounded-md,
+  section[id="testimonials"] .flex-col,
+  section[id="testimonials"] .p-4,
+  section[id="testimonials"] .p-6,
+  #testimonials .rounded-md,
+  #testimonials .flex-col,
+  #testimonials .p-4,
+  #testimonials .p-6 {
+    background: white !important;
+  }
+
+  section[id="about"] img,
+  #about img {
+    background: white !important;
+  }
+
+  /* Only override dark mode backgrounds, not all backgrounds */
+  .dark\:bg-slate-900,
+  .dark\:bg-slate-800,
+  .dark\:bg-slate-700,
+  .dark\:bg-slate-600 {
+    background: white !important;
+  }
+  section[id="resume"],
+  section[id="education"], 
+  section[id="skills"],
+  section[id="testimonials"],
+  section[id="contact"] {
+    page-break-before: always;
+  }
+
+  /* Ensure images are visible */
+  img {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+
+  /* Allow background colors to show when user enables background graphics */
+  /* Removed background: transparent override to respect browser settings */
+
+  /* Ensure text is readable */
+  p, li, td, th {
+    color: #000 !important;
+  }
+
+  /* Page margins */
+  @page {
+    margin: 1in;
+  }
+}
