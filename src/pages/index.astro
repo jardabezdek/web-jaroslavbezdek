@@ -65,32 +65,6 @@ const metadata = {
   <Content
     id="about"
     columns={3}
-    items={[
-      {
-        icon: 'tabler:brand-linkedin',
-        callToAction: {
-          target: '_blank',
-          text: 'LinkedIn',
-          href: 'https://www.linkedin.com/in/jaroslavbezdek/',
-        },
-      },
-      {
-        icon: 'tabler:brand-github',
-        callToAction: {
-          target: '_blank',
-          text: 'GitHub',
-          href: 'https://github.com/jardabezdek',
-        },
-      },
-      {
-        icon: 'tabler:brand-stackoverflow',
-        callToAction: {
-          target: '_blank',
-          text: 'StackOverflow',
-          href: 'https://stackoverflow.com/users/7122272/jaroslav-bezdek',
-        },
-      },
-    ]}
     image={{ src: '~/assets/images/me.jpg', alt: 'About', loading: 'eager' }}
   >
     <Fragment slot="content">
@@ -168,7 +142,7 @@ const metadata = {
   <!-- Education and Certifications ****************** -->
 
   <Steps
-  id="resume"
+  id="education"
   title="Education and Certifications"
   items={[
       {
@@ -384,9 +358,9 @@ const metadata = {
         icon: 'tabler:brand-linkedin',
       },
       {
-        title: 'X',
-        description: '<a href="https://x.com/iamjaroslav">@iamjaroslav</a>',
-        icon: 'tabler:brand-x',
+        title: 'GitHub',
+        description: '<a href="https://github.com/jardabezdek">jardabezdek</a>',
+        icon: 'tabler:brand-github',
       },
     ]}
   />
