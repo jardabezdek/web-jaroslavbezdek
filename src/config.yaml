@@ -11,7 +11,7 @@ metadata:
   title:
     default: Jaroslav Bezděk
     template: '%s'
-  description: "Machine Learning Engineer | Head of Sports Intelligence at GRAET | Hockey Data Analyst at HC Sparta Praha"
+  description: "Machine Learning Engineer | Hockey Data Analyst at HC Sparta Praha"
   robots:
     index: true
     follow: true
