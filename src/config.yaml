@@ -11,7 +11,7 @@ metadata:
   title:
     default: Jaroslav Bezděk
     template: '%s'
-  description: "Machine Learning Engineer | Hockey Data Analyst at HC Sparta Prague"
+  description: "Hockey Data Analyst at HC Sparta Prague | Machine Learning Engineer | Pythonista"
   robots:
     index: true
     follow: true
